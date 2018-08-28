@@ -1,3 +1,3 @@
 #!/usr/bin/python
 name = "Sanjeev"
-print "hello "+name+"\n"
+print ("hello "+name+"\n")
