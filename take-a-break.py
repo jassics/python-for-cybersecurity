@@ -10,9 +10,7 @@ break_count  = 0
 print("This program started at "+time.ctime() )
 
 while(break_count < total_breaks):
-  time.sleep(2)
+  time.sleep(1800)
   webbrowser.open("http://www.aliencoders.org")
   break_count = break_count + 1
-
-
 
