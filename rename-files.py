@@ -5,6 +5,7 @@ import os
 
 def rename_files():
   #(1) get fle names in an array from a directory
+  # give your directory path based on OS
   file_list = os.listdir(r"/home/sanjeev/prank")
   saved_path = os.getcwd()
   print("Current working directory is "+saved_path )
