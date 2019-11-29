@@ -1,6 +1,14 @@
-# learning-python
-h1. This Repository is meant for Learning Python with examples
+# Learning Python with real world examples
+This Repository is meant for Learning Python with real world examples.
 
-Examples:
-sys info
-turtle example
+# Prerequisites
+
+# Introduction
+
+# Usage
+
+# ToDo List
+
+# Troubleshoot
+
+# Contact(s)/ Contributor(s)
