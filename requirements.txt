@@ -5,6 +5,7 @@ botocore==1.13.5
 certifi==2019.11.28
 chardet==3.0.4
 colorama==0.4.1
+decorator==4.4.1
 dnspython==1.16.0
 docutils==0.15.2
 idna==2.8
@@ -17,13 +18,16 @@ PyAutoGUI==0.9.48
 PyGetWindow==0.0.8
 PyMsgBox==1.0.7
 pyperclip==1.7.0
+pypiwin32==223
 PyRect==0.1.4
 PyScreeze==0.1.25
 PySocks==1.7.1
 python-dateutil==2.8.0
 python-nmap==0.6.1
 pythonwhois==2.4.3
+pyttsx3==2.71
 PyTweening==1.0.3
+pywin32==227
 PyYAML==5.1.2
 requests==2.22.0
 rsa==3.4.2
@@ -31,3 +35,5 @@ s3transfer==0.2.1
 six==1.12.0
 soupsieve==1.9.5
 urllib3==1.25.6
+validators==0.14.1
+wikipedia==1.4.0
