@@ -6,6 +6,10 @@ import socket
 import time
 from uuid import getnode as get_mac
 
+
+# This script is tested in MacOS and it worked fine. It should work in Linux machine too.
+# I am not sure though for Windows ;)
+
 mac = get_mac()
 unumber = os.getuid()
 pnumber = os.getpid()
