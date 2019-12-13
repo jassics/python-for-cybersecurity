@@ -19,7 +19,7 @@ def get_user_details(username):
     if response.status_code == 200:
         return response.content
     else:
-        print('[!] HTTP {0} calling [{1}]'.format(response.status_code, api_url))
+        print('[!] HTTP {0} calling [{1}]'.format(response.status_code, api_url_base))
         return None
 
 def get_repos(username):      
@@ -29,11 +29,15 @@ def get_repos(username):
     if response.status_code == 200:
         return (response.content)
     else:
-        print('[!] HTTP {0} calling [{1}]'.format(response.status_code, api_url))
+        print('[!] HTTP {0} calling [{1}]'.format(response.status_code, api_url_base))
         return None
 
 # Print User details
-user_details = get_user_details(username) # It's a binary string
+try:
+    user_details = get_user_details(username) # It's a binary string
+except Exception as error:
+    print(error)
+    exit(0)
 
 if user_details is not None:
     # convert it to utf-8 encoded json string
