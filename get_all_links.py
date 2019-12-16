@@ -27,10 +27,12 @@ getpage_soup = bs(get_content.text, 'html.parser')
 all_links= getpage_soup.findAll('a', attrs={'href' : re.compile("^https?://")})
 
 # Save the links in a file
+# just get the domain name and create a file by domain name with -links.txt
 domain_name = url.split('//')[1]
 file_name = domain_name + '-links.txt'
 
 with open(file_name, 'w+') as file_to_write:
     for link in all_links:
         href_link = link.get('href')
-        file_to_write.write(href_link + "\n")
+        if re.search("facebook|fb|instagram|linkedin|twitter|google|telegram|whatsapp|pinterest|goo\.gl|baidu", href_link) is None:
+            file_to_write.write(href_link + "\n")
