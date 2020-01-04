@@ -1,22 +1,24 @@
 import requests # pip install requests
 from bs4 import BeautifulSoup # pip install beautifulsoup4
 import re # module for regular expression activities
+import getpass # invisible password in terminal
 
 # This script is to list the linkedin viewers for your profile
 # Thanks to Prudhvi Pentakota for sharing this idea
 # It's a web scraping, it might not work, if linkedin changes the code or
 # Linkedin may block your IP too. So, don't run this script more often
-# You can better use Linkedin developer API, it that allows you to view the list without being a paid member.
+# You can better use Linkedin developer API, if that allows you to view the list without being a paid member.
 # AUTHOR: Sanjeev Jaiswal
-# VERSION: 1.0
+# VERSION: 1.1
+
+# Ask user to type username and password
 
 # Your login credentials
-email = "" #your email id
-password = "" # Your password
+email = input("username: ") #your email id
+password = getpass.getpass(prompt='Password: ', stream=None) # Your password
 
 # Leverage session of requests module
 client = requests.Session()
-
 
 HOMEPAGE_URL = 'https://www.linkedin.com'
 LOGIN_URL = 'https://www.linkedin.com/uas/login-submit'
