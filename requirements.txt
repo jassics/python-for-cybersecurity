@@ -32,7 +32,7 @@ paramiko==2.7.0
 parso==0.5.1
 pathspec==0.5.9
 pickleshare==0.7.5
-Pillow==6.2.1
+Pillow>=6.2.2
 prettytable==0.7.2
 prompt-toolkit==3.0.2
 pyasn1==0.4.7
