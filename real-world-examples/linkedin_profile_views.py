@@ -49,6 +49,9 @@ profile_views_html = BeautifulSoup(profile_views_raw, "html.parser")
 # look for <code id="bpr-guid-" and get the value
 code = profile_views_html.findAll('code', {'id': re.compile('^bpr-guid-')})
 
+if not code:
+    exit("Possible wrong creds. Please check creds and retry\n")
+
 final_viewer_list = []
 
 for line in code:
