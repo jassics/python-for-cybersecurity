@@ -113,8 +113,8 @@ if len(sys.argv) >=2:
         if len(sys.argv) == 3:
             get_info_offline(sys.argv[2])
         else:
-            exit("It requires filename when you choose offline option\n")
+            exit("It requires filename when you choose offline option\npython script-name online or python script-name offline page-source.txt\n")
     else:
-        exit("It should be either online or offline as an argument\n")
+        exit("It should be either online or offline as an argument\npython script-name online or python script-name offline page-source.txt\n")
 else:
     exit("It needs at least an argument\npython script-name online or python script-name offline page-source.txt\n")
