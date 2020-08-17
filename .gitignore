@@ -111,3 +111,6 @@ venv.bak/
 
 # Ignore CSV
 *.csv
+
+# Ignore text
+*.txt
