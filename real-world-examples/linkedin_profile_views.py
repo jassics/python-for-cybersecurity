@@ -56,7 +56,8 @@ final_viewer_list = []
 
 for line in code:
     string_line = str(line)
-    profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"(\w+|\.)"', string_line)
+    #profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"(\w+|\.)"', string_line)
+    profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"([a-zA-z-,\.\s]+)"', string_line)
     if profile_search:
         final_viewer_list.extend(profile_search)
 
