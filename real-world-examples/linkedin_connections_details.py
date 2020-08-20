@@ -8,6 +8,30 @@ import csv
 import getpass
 
 
+def login():
+    # Ask user to type username and password
+
+    # Your login credentials
+    email = input("username[email id]: ")  # your email id
+    password = getpass.getpass(prompt='Password: ', stream=None)  # Your password
+
+    # initialize chrome drive, open url and login with credentials provided
+    browser = webdriver.Chrome()
+    browser.get('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
+    browser.maximize_window()
+
+    email_element = browser.find_element_by_id("username")
+    email_element.send_keys(email)
+
+    pass_element = browser.find_element_by_id("password")
+    pass_element.send_keys(password)
+    pass_element.submit()
+
+    print("success! Logged in, Bot starting")
+
+    return(browser)
+
+
 def get_title_location(contact):
     # Get title and location from parsed html content
     contact_details_list = []
@@ -20,7 +44,6 @@ def get_title_location(contact):
         print("[+]", contact_title)
         contact_details_list.append(contact_title)
     except:
-        print("[-] NA")
         contact_details_list.append("NA")
 
     # Get location
@@ -31,7 +54,6 @@ def get_title_location(contact):
         print("[+]", contact_location)
         contact_details_list.append(contact_location)
     except:
-        print("[-] NA")
         contact_details_list.append("NA")
 
     return contact_details_list
@@ -41,10 +63,13 @@ def get_name_email_phone(contact):
     # Get Name, email and phone number from parsed html content
     contact_details_list = []
     # Get the name from <h1 id="pv-contact-info">
-    contact_name = contact.find('h1', {'id': 'pv-contact-info'})
-    contact_name = contact_name.text.strip()
-    print("[+]", contact_name)
-    contact_details_list.append(contact_name)
+    try:
+        contact_name = contact.find('h1', {'id': 'pv-contact-info'})
+        contact_name = contact_name.text.strip()
+        print("[+]", contact_name)
+        contact_details_list.append(contact_name)
+    except:
+        contact_details_list.append('NA')
 
     # for email id its a href: mailto
     content_contact_page = contact.find_all('a', href=re.compile("mailto"))
@@ -77,15 +102,15 @@ def get_name_email_phone(contact):
     if contact_phone:
         for phone in contact_phone:
             phone_number = phone.text.strip()
-            print(phone_number)
-            # phone_numbers = re.findall(r'[0+]?[\d\s]{1,3}?[-\s]?[\d-]{7,}', phone_number)
-            phone_numbers = re.findall(r'^[(0+]?[\d\s]{1,3}?[-\s)]?[-\d\s]{9,12}$', phone_number)
-            print(phone_numbers)
+            phone_numbers = re.findall(r'^[(0+]?[\d\s]{1,3}?[-\s)]?[-\d\s]{8,12}$', phone_number, re.MULTILINE)
 
             if phone_numbers:
                 for number in phone_numbers:
-                    print("[+]", number)
-                    contact_details_list.append(number)
+                    number.strip()i
+                    number.rstrip('\r\n')
+                    if number:
+                        print("[+]", number)
+                        contact_details_list.append(number)
             else:
                 contact_details_list.append('NA')
     else:
@@ -120,93 +145,72 @@ def get_contact_details(contact_url):
 
 
 # MAIN SCRIPT START HERE
-# Ask user to type username and password
+# Mode: Online or Offline
+# Based on online or offline mode, you can run the script
+# 1. Online: login and scroll the pages then save the connections url
+# 2. Offline: pass connections url csv and then proceed with data extraction (Common for both mode)
+mode = 'offline'  # mode can be 'online' or 'offline'
+mynetwork = []  # mynetwork list contains contact urls
 
-# Your login credentials
-email = input("username[email id]: ")  # your email id
-password = getpass.getpass(prompt='Password: ', stream=None)  # Your password
 
-# initialize chrome drive, open url and login with credentials provided
-browser = webdriver.Chrome()
-browser.get('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
-browser.maximize_window()
+if mode == 'online':
+    browser = login()
+    browser.implicitly_wait(3)
+    browser.get("https://www.linkedin.com/mynetwork/invite-connect/connections/")
+    """
+    SCROLL_PAUSE_TIME = 4.0
+    try:
+        for count in range(140):
+            # Scroll down to bottom
+            browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            # in case loop terminates abruptly,
+            page = bs(browser.page_source, features="html.parser")
+            print(count)
+            # Wait to load page
+            time.sleep(SCROLL_PAUSE_TIME)
+    except:
+        print("Exited for loop due to some fault.\n")
+    """
+    print("Processing connections page\n\n")
+    page = bs(browser.page_source, features="html.parser")
+    content = page.find_all('a', {'class': "mn-connection-card__link ember-view"})
 
-email_element = browser.find_element_by_id("username")
-email_element.send_keys(email)
+    for contact in content:
+        mynetwork.append(contact.get('href'))
 
-pass_element = browser.find_element_by_id("password")
-pass_element.send_keys(password)
-pass_element.submit()
+    # Get all contact url in a text file for offline purpose to avoid scrolling long list of network main page
+    f = open("fm-linkedin-contact-urls.txt", "a+")
+    for contact_url in mynetwork:
+        f.write(contact_url + "\n")
+    f.close()
 
-print("success! Logged in, Bot starting")
-browser.implicitly_wait(3)
+if mode == 'offline':
+    f = open('fm-linkedin-contact-urls.txt')
+    for url in f:
+        url.strip()
+        mynetwork.append(url)
+    f.close()
 
-browser.get("https://www.linkedin.com/mynetwork/invite-connect/connections/")
-
-page = bs(browser.page_source, features="html.parser")
-
-SCROLL_PAUSE_TIME = 4.0
-# while True:
-try:
-    for count in range(140):
-        # Scroll down to bottom
-        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        page = bs(browser.page_source, features="html.parser")
-        print(count)
-        # Wait to load page
-        time.sleep(SCROLL_PAUSE_TIME)
-except:
-    print("Exited for loop due to some fault.\n")
-
-print("Processing connections page\n\n")
-page = bs(browser.page_source, features="html.parser")
-content = page.find_all('a', {'class': "mn-connection-card__link ember-view"})
-
-mynetwork = []
-for contact in content:
-    mynetwork.append(contact.get('href'))
 print(len(mynetwork), " connections")
 
-"""""
-# Only work for new connections
-# Get existing connection from csv file
-# get latest csv from mailchimp
-# sync local csv with mailchimp csv
-total_connections = len(mynetwork)
-existing_connections = 0
-new_connections = total_connections - existing_connections
-"""""
-
-# Get all contact url in a text file for offline purpose to avoid scrolling long list of network main page
-f = open("fm-linkedin-contact-urls.txt", "a+")
-for contact_url in mynetwork:
-    f.write(contact_url + "\n")
-f.close()
-
-
-my_network_details = {}
+f = open('fm-linkedin-contacts.csv', 'a+')
+writer = csv.writer(f)
+writer.writerow(["Linkedin URL", "Name", "Title", "Location", "Email", "Phone"])
 
 # Connect to the profile of all contacts and save the name, email, phone, title and location within a list
-for contact in mynetwork:
-    # Main url for contact
-    contact_url = "https://www.linkedin.com" + contact
-    contact_list = get_contact_details(contact_url)
+try:
+    if mode == 'offline':
+        browser = login()
+    for contact in mynetwork:
+        # Main url for contact
+        contact_url = "https://www.linkedin.com" + contact
+        contact_list = get_contact_details(contact_url)
 
-    # Updating my_network_details dictionary
-    my_network_details[contact_url] = {
-        'name': contact_list[2],
-        'title': contact_list[0],
-        'location': contact_list[1],
-        'email': contact_list[3],
-        'phone': contact_list[4]
-    }
+        writer.writerow([contact_url, contact_list[2], contact_list[0], contact_list[1],
+                      contact_list[3], contact_list[4]])
+except:
+    print("Processing Stopped\n")
 
-
-with open('fm-linkedin-contacts.csv', 'a+') as f:
-    writer = csv.writer(f)
-    writer.writerow(["Linkedin URL", "Name", "Title", "Location", "Email", "Phone"])
-
-    for url, contact_details_dict in my_network_details.items():
-        writer.writerow([url, contact_details_dict['name'], contact_details_dict['title'], contact_details_dict['location'], contact_details_dict['email'], contact_details_dict['phone']])
-
+f.close()
 browser.quit()
+
