@@ -7,25 +7,35 @@ import re
 import csv
 import getpass
 
+
 def get_title_location(contact):
     # Get title and location from parsed html content
     contact_details_list = []
 
     # Get title
     # Sample <h2 class="mt1 t-18 t-black t-normal break-words">
-    contact_title = contact.find('h2', {'class': 'mt1 t-18 t-black t-normal break-words'})
-    contact_title = contact_title.text.strip()
-    print("[+]", contact_title)
-    contact_details_list.append(contact_title)
+    try:
+        contact_title = contact.find('h2', {'class': 'mt1 t-18 t-black t-normal break-words'})
+        contact_title = contact_title.text.strip()
+        print("[+]", contact_title)
+        contact_details_list.append(contact_title)
+    except:
+        print("[-] NA")
+        contact_details_list.append("NA")
 
     # Get location
     # Sample li with class t-16 t-black t-normal inline-block
-    contact_location = contact.find('li', {'class': 't-16 t-black t-normal inline-block'})
-    contact_location = contact_location.text.strip()
-    print("[+]", contact_location)
-    contact_details_list.append(contact_location)
+    try:
+        contact_location = contact.find('li', {'class': 't-16 t-black t-normal inline-block'})
+        contact_location = contact_location.text.strip()
+        print("[+]", contact_location)
+        contact_details_list.append(contact_location)
+    except:
+        print("[-] NA")
+        contact_details_list.append("NA")
 
     return contact_details_list
+
 
 def get_name_email_phone(contact):
     # Get Name, email and phone number from parsed html content
@@ -33,30 +43,51 @@ def get_name_email_phone(contact):
     # Get the name from <h1 id="pv-contact-info">
     contact_name = contact.find('h1', {'id': 'pv-contact-info'})
     contact_name = contact_name.text.strip()
+    print("[+]", contact_name)
     contact_details_list.append(contact_name)
 
     # for email id its a href: mailto
-    content_contact_page = contact.find_all('a',href=re.compile("mailto"))
+    content_contact_page = contact.find_all('a', href=re.compile("mailto"))
 
+    # to extract mail id
     if content_contact_page:
-        for contact in content_contact_page:
-            print("[+]", contact.get('href')[7:])
-            if contact.get('href')[7:]:
-                contact_details_list.append(contact.get('href')[7:])
+        for contacts in content_contact_page:
+            print("[+]", contacts.get('href')[7:])
+            if contacts.get('href')[7:]:
+                contact_details_list.append(contacts.get('href')[7:])
     else:
         contact_details_list.append('NA')
 
+    # for mobile number : <li having this classpv-contact-info__ci-container> pv-contact-info__ci-container t-14
+    contact_phone = contact.find_all('li', {'class': 'pv-contact-info__ci-container t-14'})
 
-    # for mobile number : <li having this classpv-contact-info__ci-container>
-    contact_phone = contact.find_all('li', {'class': 'pv-contact-info__ci-container'})
     # SAMPLE: <span class="t-14 t-black t-normal">xxxxxxxx</span>
-    phone_number_regex = re.compile(r'\d{10}')
-    phone_numbers = phone_number_regex.findall(str(contact_phone))
+    # Regex to match any of these:
+    # 9618967875
+    # 09618967875
+    # +919618967875
+    # +91-9618967875
+    # +91 9618967875
+    # +919618-967-785
+    # +91-9618-967-785
+    # +910 9618-967-785
+    # (910) 987 7879
 
-    if phone_numbers:
-        for number in phone_numbers:
-            print("[+]", number)
-            contact_details_list.append(number)
+    # to extract phone number in possible manner with regex.
+    if contact_phone:
+        for phone in contact_phone:
+            phone_number = phone.text.strip()
+            print(phone_number)
+            # phone_numbers = re.findall(r'[0+]?[\d\s]{1,3}?[-\s]?[\d-]{7,}', phone_number)
+            phone_numbers = re.findall(r'^[(0+]?[\d\s]{1,3}?[-\s)]?[-\d\s]{9,12}$', phone_number)
+            print(phone_numbers)
+
+            if phone_numbers:
+                for number in phone_numbers:
+                    print("[+]", number)
+                    contact_details_list.append(number)
+            else:
+                contact_details_list.append('NA')
     else:
         contact_details_list.append('NA')
 
@@ -64,6 +95,7 @@ def get_name_email_phone(contact):
     time.sleep(random.uniform(0.8, 1.8))
 
     return contact_details_list
+
 
 def get_contact_details(contact_url):
     # contact detail info popup url
@@ -86,14 +118,15 @@ def get_contact_details(contact_url):
 
     return title_location_list + mail_phone_list
 
+
 # MAIN SCRIPT START HERE
 # Ask user to type username and password
 
 # Your login credentials
-email = input("username[email id]: ") #your email id
-password = getpass.getpass(prompt='Password: ', stream=None) # Your password
+email = input("username[email id]: ")  # your email id
+password = getpass.getpass(prompt='Password: ', stream=None)  # Your password
 
-# initilize chrome drive, open url and login with creds provided
+# initialize chrome drive, open url and login with credentials provided
 browser = webdriver.Chrome()
 browser.get('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
 browser.maximize_window()
@@ -105,37 +138,29 @@ pass_element = browser.find_element_by_id("password")
 pass_element.send_keys(password)
 pass_element.submit()
 
-print ("success! Logged in, Bot starting")
+print("success! Logged in, Bot starting")
 browser.implicitly_wait(3)
 
 browser.get("https://www.linkedin.com/mynetwork/invite-connect/connections/")
 
-# To load all contacts You need to scroll as down as it allows.
-last_height = browser.execute_script("return document.body.scrollHeight")
-print(last_height)
+page = bs(browser.page_source, features="html.parser")
 
 SCROLL_PAUSE_TIME = 4.0
+# while True:
+try:
+    for count in range(140):
+        # Scroll down to bottom
+        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        page = bs(browser.page_source, features="html.parser")
+        print(count)
+        # Wait to load page
+        time.sleep(SCROLL_PAUSE_TIME)
+except:
+    print("Exited for loop due to some fault.\n")
 
-while True:
-     # Scroll down to bottom
-     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-     # Wait to load page
-     # time.sleep(random.uniform(2.9, 5.9))
-     time.sleep(SCROLL_PAUSE_TIME)
-     # Calculate new scroll height and compare with total scroll height
-     new_height = browser.execute_script("return document.body.scrollHeight")
-     print(new_height)
-
-     #if new_height == last_height:
-     #    break
-     if (new_height >= 209982):
-         break
-
-     last_height = new_height
-
-
+print("Processing connections page\n\n")
 page = bs(browser.page_source, features="html.parser")
-content = page.find_all('a', {'class':"mn-connection-card__link ember-view"})
+content = page.find_all('a', {'class': "mn-connection-card__link ember-view"})
 
 mynetwork = []
 for contact in content:
@@ -152,6 +177,13 @@ existing_connections = 0
 new_connections = total_connections - existing_connections
 """""
 
+# Get all contact url in a text file for offline purpose to avoid scrolling long list of network main page
+f = open("fm-linkedin-contact-urls.txt", "a+")
+for contact_url in mynetwork:
+    f.write(contact_url + "\n")
+f.close()
+
+
 my_network_details = {}
 
 # Connect to the profile of all contacts and save the name, email, phone, title and location within a list
@@ -162,20 +194,19 @@ for contact in mynetwork:
 
     # Updating my_network_details dictionary
     my_network_details[contact_url] = {
-        'name'    : contact_list[2],
-        'title'   : contact_list[0],
+        'name': contact_list[2],
+        'title': contact_list[0],
         'location': contact_list[1],
-        'email'   : contact_list[3],
-        'phone'   : contact_list[4]
+        'email': contact_list[3],
+        'phone': contact_list[4]
     }
 
-#print(my_network_details)
 
-with open(f'fm_linkedin_contacts.csv', 'w') as f:
+with open('fm-linkedin-contacts.csv', 'a+') as f:
     writer = csv.writer(f)
     writer.writerow(["Linkedin URL", "Name", "Title", "Location", "Email", "Phone"])
 
     for url, contact_details_dict in my_network_details.items():
-        writer.writerow( [url, contact_details_dict['name'], contact_details_dict['title'], contact_details_dict['location'], contact_details_dict['email'], contact_details_dict['phone'] ])
+        writer.writerow([url, contact_details_dict['name'], contact_details_dict['title'], contact_details_dict['location'], contact_details_dict['email'], contact_details_dict['phone']])
 
 browser.quit()
