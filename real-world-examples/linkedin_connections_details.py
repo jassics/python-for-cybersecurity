@@ -106,7 +106,7 @@ def get_name_email_phone(contact):
 
             if phone_numbers:
                 for number in phone_numbers:
-                    number.strip()i
+                    number.strip()
                     number.rstrip('\r\n')
                     if number:
                         print("[+]", number)
@@ -188,6 +188,7 @@ if mode == 'offline':
     f = open('fm-linkedin-contact-urls.txt')
     for url in f:
         url.strip()
+        url.rstrip("\n")
         mynetwork.append(url)
     f.close()
 
