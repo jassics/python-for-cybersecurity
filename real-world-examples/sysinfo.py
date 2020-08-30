@@ -25,16 +25,22 @@ print ("Login Name", login)
 print ("Current Directory",where)
 print ("Group", group)
 
-print ("Name: " +socket.gethostname( )) 
+print ("Name: " +socket.gethostname( ))
 print ("FQDN: " +socket.getfqdn())
 print ("System Platform: "+sys.platform)
-print ("Machine: " +platform.machine())
 print ("Node " +platform.node())
 print ("Platform: "+platform.platform())
-print ("Pocessor: " +platform.processor())
 print ("System OS: "+platform.system())
 print ("Release: " +platform.release())
 print ("Version: " +platform.version())
 print ("Python Version: " +platform.python_version())
 print ("MacOS Version: " +platform.mac_ver()[0])
 print ("Mac Address: " ,hex(mac))
+# displaying platform architecture
+print('Platform architecture:', platform.architecture())
+# displaying platform processor
+print('Platform processor:', platform.processor())
+# displaying machine type
+print('Machine type:', platform.machine())
+# displaying system network name
+print("System's network name:", platform.node())
