@@ -12,7 +12,7 @@ if len(sys.argv) !=2:
 
 alexa_base_url = 'https://alexa.com/siteinfo/'
 site_name = sys.argv[1]
-site_name = site_name.lower()
+site_name.lower()
 
 def is_valid_domain(site_name):
     if validators.domain(site_name):
