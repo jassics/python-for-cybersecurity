@@ -58,8 +58,8 @@ def get_info_online():
 def get_info_offline(filename):
     try:
         profile_views_raw = open(filename).read()
-    except:
-        exit("Either file doesn't exit or you don't have permission. Please verify\n")
+    except Exception as e:
+        exit("Either file doesn't exit or you don't have permission. Please verify\n", e)
 
     process_and_print(profile_views_raw)
     return None

@@ -23,7 +23,7 @@ get_content = requests.get(url)
 # get html formatted content using bs module
 getpage_soup = bs(get_content.text, 'html.parser')
 
-# fina all the links using a tag and with regex to look for href value as starting with http or https
+# find all the links using a tag and with regex to look for href value as starting with http or https
 all_links= getpage_soup.findAll('a', attrs={'href' : re.compile("^https?://")})
 
 # Save the links in a file
