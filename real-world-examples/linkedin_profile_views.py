@@ -79,8 +79,13 @@ def process_and_print(raw_data):
 
     for line in code:
         string_line = str(line)
-        # profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"(\w+|\.)"', string_line)
-        profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"([a-zA-z-,\.\s]+)"', string_line)
+        # Below line was working earlier but now it's not working due to some changes at front-end
+        # profile_search = re.findall('firstName":"(\w+\s?\w+?)","lastName":"([a-zA-z-,\.\s]+)"', string_line)
+
+        # Below 3 lines are working code because you need to get firstname and lastname separately now and then zip it
+        firstname = re.findall('firstName":"(\w+\s?\w+?)"', string_line)
+        lastname = re.findall('lastName":"(\w+\s?\w+?)"', string_line)
+        profile_search = zip(firstname,lastname)
         if profile_search:
             final_viewer_list.extend(profile_search)
 
