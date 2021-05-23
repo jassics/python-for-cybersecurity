@@ -24,7 +24,7 @@ isodate==0.6.0
 itsdangerous==1.1.0
 jmespath==0.10.0
 jsondiff==1.2.0
-lxml==4.6.2
+lxml==4.6.3
 networkx==2.5
 nibabel==3.2.1
 nipype==1.6.0
