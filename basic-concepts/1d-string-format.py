@@ -17,9 +17,11 @@ print(text)
 print("======== Arguments by position ========")
 print("First Name: {}".format(first_name)) 
 print("First Name: {0}".format(first_name))
+print(f"First Name: {first_name}")
 print("Full Name: {} {}".format(first_name, last_name))
 print("Full Name: {0} {1}".format(first_name, last_name))
 print("Full Name: {1} {0}".format(first_name, last_name))
+print(f"Full Name: {first_name} {last_name}")
 
 # Arguments by parameter
 print("======= Arguments by parameter =======")

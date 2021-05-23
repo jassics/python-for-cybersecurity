@@ -16,7 +16,7 @@ print('x - y =',x-y)
 print('x * y =',x*y)
 
 # Output: x / y = 4.2
-# Dision, always results in float
+# Division, always results in float
 print('x / y =',x/y)
 
 # Output x % y = 1

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Example of pass, break, continue
-# pass: does nothing. useful when testing something or when that code block is not rewuired
+# pass: does nothing. useful when testing something or when that code block is not required
 # break: terminates the current loop and resumes execution at the next statement
 # continue: returns the control to the beginning of the loop
 

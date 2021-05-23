@@ -41,5 +41,5 @@ print(nick_name.isupper())
 reversed_first_name =''.join(reversed(first_name))
 print("Reverse of {} is {}". format(first_name, reversed_first_name))
 
-# Pracgice for split(), replace(), strip(), find()
+# Practice for split(), replace(), strip(), find()
 # Check our Lab Practice Questions
