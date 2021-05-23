@@ -63,7 +63,7 @@ del allowed_ports
 try:
     print(allowed_ports)
 except Exception as e:
-    print(e)
+    print("Seems allowed_ports doesn't exist now? Error:", e)
 
 # You can try below 2 tasks
 # 1. Join the lists
