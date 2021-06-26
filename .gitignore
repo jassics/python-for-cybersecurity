@@ -114,3 +114,6 @@ venv.bak/
 
 # Ignore text
 *.txt
+
+# Ignore mp3
+*.mp3
