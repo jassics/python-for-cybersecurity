@@ -6,11 +6,13 @@
 #   Mac: brew install poppler
 #   Linux: sudo apt-get install python-poppler
 #   Windows: https://poppler.freedesktop.org/
+# If you still get no module found error try this in Mac:
+#    python3 -m pip install pdf2image --user
 
 from pdf2image import convert_from_path
 
 # filename. Change the file-name.pdf to actual pdf file name.
-pdf_file = "file-name.pdf"
+pdf_file = "Python3-Specialization-XK7XRMUDJZAH.pdf"
 
 # Let the conversion begine
 pages = convert_from_path(pdf_file)
