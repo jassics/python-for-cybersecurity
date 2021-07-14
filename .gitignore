@@ -117,3 +117,9 @@ venv.bak/
 
 # Ignore mp3
 *.mp3
+
+# Ignore png files
+*.png
+
+# Ignore jpg files
+*.jpg
