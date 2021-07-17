@@ -123,3 +123,6 @@ venv.bak/
 
 # Ignore jpg files
 *.jpg
+
+# Ignore svg files
+*.svg
