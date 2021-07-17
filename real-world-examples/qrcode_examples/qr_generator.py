@@ -1,3 +1,4 @@
+# pip install pyqrcode
 import pyqrcode
 from PIL import Image
 
