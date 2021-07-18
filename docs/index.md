@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+# Learning Python Basics with the Real World Examples
+This Repository is meant for Learning Python Fundamentals with the real world examples.
+It would invoke some thoughts and logic inside you to go further.
 
-You can use the [editor on GitHub](https://github.com/jassics/learning-python/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+There would be lots of examples and exercises on the top of that that you can do to be comfortable with Python Programming.
+Once you are good with basic concepts explained in this repository, you can go ahead and practice those exercises mentioned in exercise folder.
+Real world examples are the examples which you would see around you in regular basis like conversion of json to csv, pdf to images, web scraping etc.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Prerequisites
+1. Python 3.x preferably > 3.7
+2. Mostly pip would be installed with Python package, if not then install pip separately.
+3. git is installed and you know basics of git commands.
+4. Have access to terminal/command line
+5. You know basic concepts of any programming language, not mandatory though
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Helpful Resources
+### Books
+### Articles/Blogs
+### Videos (Youtube mainly)
+### Online Courses (Free or Paid)
 
-```markdown
-Syntax highlighted code block
+## ToDo List
+- [] Add examples for all basic concepts
+- [] Add at least 20 simple exercises similar to hackerrank or hackerearth 
+- [] Add at least 20 common real-world examples
+- [] Add 3-5 real-world examples for ML & DS, 
+- [] Add 3-5 real-world examples for Web Development
+- [] Add 3-5 real-world examples for AWS
+- [] Add 3-5 real-world examples for CyberSecurity
 
-# Header 1
-## Header 2
-### Header 3
+## Troubleshoot
+- You should be using Python 3.x preferably > 3.7
+- Check python version `python --version`
+- Similarly check pip version `pip --version`. It should point to Python3.x
+- If you get module name not found error, try to install that named module as `pip install module-name`
+- If you are getting any other error mail me. I would add those steps here.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jassics/learning-python/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
