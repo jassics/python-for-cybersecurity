@@ -16,18 +16,33 @@ Real world examples are the examples which you would see around you in regular b
 
 ## Helpful Resources
 ### Books
+1. Learning Python
+2. Programming Python
+3. Head First Python
+4. Fluent Python
+5. Learn Python3 the hard way
+6. Automate the boring stuff with Python
+7. Python Cookbook
+8. Python Crash Course
+
 ### Articles/Blogs
+
 ### Videos (Youtube mainly)
+[Flexmind Channel's Python Videos Playlist](https://youtube.com/playlist?list=PLRTsCutScZnwoFVqkk630BLBGMCIsj426)
+
 ### Online Courses (Free or Paid)
+1. [Python for Everybody Specialization](https://www.coursera.org/specializations/python)
+2. [Python3 Programming Specialization](https://www.coursera.org/specializations/python-3-programming)
+3. [Crash Course on Python by Google](https://www.coursera.org/learn/python-crash-course)
 
 ## ToDo List
-- [] Add examples for all basic concepts
-- [] Add at least 20 simple exercises similar to hackerrank or hackerearth 
-- [] Add at least 20 common real-world examples
-- [] Add 3-5 real-world examples for ML & DS, 
-- [] Add 3-5 real-world examples for Web Development
-- [] Add 3-5 real-world examples for AWS
-- [] Add 3-5 real-world examples for CyberSecurity
+- [ ] Add examples for all basic concepts :star:
+- [ ] Add at least 20 simple exercises similar to hackerrank or hackerearth :fire:
+- [ ] Add at least 20 common real-world examples :sunglasses:
+- [ ] Add 3-5 real-world examples for ML & DS :sparkles: 
+- [ ] Add 3-5 real-world examples for Web Development :globe_with_meridians:
+- [ ] Add 3-5 real-world examples for AWS :cloud:
+- [ ] Add 3-5 real-world examples for CyberSecurity :smiling_imp:
 
 ## Troubleshoot
 - You should be using Python 3.x preferably > 3.7
