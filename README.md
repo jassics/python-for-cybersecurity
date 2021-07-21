@@ -24,6 +24,8 @@ Real world examples are the examples which you would see around you in regular b
 6. Automate the boring stuff with Python
 7. Python Cookbook
 8. Python Crash Course
+9. Effective Python
+10. Modern Python Cookbook
 
 ### Articles/Blogs
 
@@ -43,6 +45,7 @@ Real world examples are the examples which you would see around you in regular b
 - [ ] Add 3-5 real-world examples for Web Development :globe_with_meridians:
 - [ ] Add 3-5 real-world examples for AWS :cloud:
 - [ ] Add 3-5 real-world examples for CyberSecurity :smiling_imp:
+- [ ] Add basic tutorial page using sanjeevjaiswal.com domain
 
 ## Troubleshoot
 - You should be using Python 3.x preferably > 3.7
