@@ -1,4 +1,6 @@
 # pip install pyqrcode
+# if it gives error as png moudle not found, install it using `pip install pypng`
+# pip install pillow for PIL module
 import pyqrcode
 from PIL import Image
 

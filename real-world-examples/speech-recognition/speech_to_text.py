@@ -6,6 +6,8 @@
 # Note: As pyaudio has dependency on portaudio, install portaudio first in your machine.
 # If you are getting error in MacOs. fatal error: 'portaudio.h' file not found. Run brew install portaudio
 # You can read which languages it supports here: https://cloud.google.com/speech-to-text/docs/languages
+# Use this if still you get portaudio.h error while installing pyaudio
+# pip install --global-option='build_ext' --global-option='-I/usr/local/include' --global-option='-L/usr/local/lib' pyaudio
 
 # import the module
 import speech_recognition as sr
