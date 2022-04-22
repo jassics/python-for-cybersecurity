@@ -198,7 +198,7 @@ pyobjc-framework-Vision==8.4
 pyobjc-framework-WebKit==8.4
 pyOpenSSL==22.0.0
 pyparsing==3.0.7
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 pypng==0.0.21
 PyQRCode==1.2.1
 pyshorteners==1.0.1
