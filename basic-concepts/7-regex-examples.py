@@ -3,7 +3,7 @@ import re
 
 urls = ["https://www.facebook.com","https://www.google.com","https://www.amazon.in"]
 
-def checkVaildURL(url):
+def checkValidURL(url):
     url_reg_ex = "^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
     data = re.search(url_reg_ex,url)
     if data is not None:
@@ -17,7 +17,7 @@ def parseDomain(url):
 
 if __name__ == "__main__":
     for url in urls:
-        url_status = checkVaildURL(url)
+        url_status = checkValidURL(url)
         if url_status:
             parseDomain(url)
 
