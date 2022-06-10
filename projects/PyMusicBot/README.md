@@ -1,5 +1,5 @@
 # PyMusic
-[CLI](assets/cli_ui.png)
+![CLI](assets/cli_ui.png)
 A terminal music player that streams youtube songs.
 
 ## Installation
