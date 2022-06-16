@@ -1,0 +1,6 @@
+bs4==0.0.1
+requests==2.25.1
+fastapi==0.75.1
+python-multipart==0.0.5
+uvicorn==0.17.6
+Flask==2.1.2

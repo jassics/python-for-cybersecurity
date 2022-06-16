@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<link rel = "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/ui/home.css') }}">
+{% endblock %}
+
+
+{% block title %} GhBot | Home  {% endblock %}
+
+
+{% block main %}
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="margin-top: 8vh;">
+            <form method="post" action="" class="d-flex shadow bg-light mkt-border" style="padding:10px;border-radius: 10px;">
+                <input name="searchField" id="search" class="form-control me-2" type="search" placeholder="Search Github Username" aria-label="Search Github Username">
+                <button class="btn btn-success" stype="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    {% if params["status"] == "error" %}
+      <div class="container" style="margin-top: 4vh;">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 shadow bg-light mkt-border pad-3" style="text-align:center;justify-content:center;border-radius: 10px;">
+            <h3>User not found</h3>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+      
+    {% elif params["status"] == "success" %}
+      <div class="row "> 
+          <div class="col-md-2"></div>
+          <div class="col-md-8 my-4 pad-top-6">
+            <div class="shadow bg-light mkt-border pad-3" style="text-align:center;justify-content:center;border-radius: 10px;">
+              <div class="marg-top-3 pad-top-6">
+                <h2>Profile Data</h2>
+                <div>Username: {{ params["output"]["data"]["username"] }}</div> 
+                <div>Followers: {{ params["output"]["data"]["followers"] }}</div> 
+                <div>Following: {{ params["output"]["data"]["following"] }}</div> 
+              </div>
+
+              <div class="marg-top-3">
+                <h2>Profile Activity</h2>
+                <div>Recently Followed: {{ params["output"]["data"]["recently_followed"] }} </div>
+                <div>Recently Unfollowed: {{ params["output"]["data"]["recently_unfollowed"] }}</div>
+                <div>Recently Followed By User: {{ params["output"]["data"]["recently_followed_by_user"] }} </div>
+                <div>Recently Unfollowed by User: {{ params["output"]["data"]["recently_unfollowed_by_user"] }} </div>
+              </div>
+
+              <div class="marg-top-3">
+                <h2>Profile History</h2>
+                <p>
+                  All Followers: 
+                  {% for followers in params["output"]["data"]["all_followers"] %}
+                    <div>{{followers}}</div>
+                  {% endfor %}
+                </p>
+                
+                <p>
+                  All Following:
+                  {% for followers in params["output"]["data"]["all_following"] %}
+                    <div>{{followers}}</div>
+                  {% endfor %}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}
+
+
+
+{% block js%}
+<script src="{{ url_for('static',filename='js/ui/base.js') }}"></script>
+<script src="{{ url_for('static',filename='js/ui/home.js') }}"></script>
+{% endblock %}
