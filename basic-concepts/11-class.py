@@ -10,16 +10,22 @@ class Laptop:
         self.display = "1080p"
         self.battery = "60 WHr"
         self.storage = "256 GB SSD"
+    
 
     def setSpecifications(self,specs:dict):
-        self.model = specs["model"]
-        self.cpu = specs["cpu"]
-        self.gpu = specs["gpu"]
-        self.ram = specs["ram"]
-        self.display = specs["display"]
-        self.battery = specs["battery"]
-        self.storage = specs["storage"]
+        try:
+            self.model = specs["model"]
+            self.cpu = specs["cpu"]
+            self.gpu = specs["gpu"]
+            self.ram = specs["ram"]
+            self.display = specs["display"]
+            self.battery = specs["battery"]
+            self.storage = specs["storage"]
 
+        except Exception as e:
+            print("All attributes not passed in specs")
+            exit()
+            
     def getSpecifications(self):
         print(f"Model: {self.model}")
         print(f"CPU: {self.cpu}")
@@ -59,7 +65,6 @@ class GamingLaptop(Laptop):
 if __name__ == "__main__":
 
     gaming_specs = {
-        "model": "ASUS TUF Gaming A15",
         "cpu" : "i7 12th Gen",
         "gpu" : "RTX 3070 Ti",
         "ram" : "16 GB",
@@ -68,6 +73,7 @@ if __name__ == "__main__":
         "storage" : "1 TB NVME M.2 SSD"
     }
 
+    #         "model": "ASUS TUF Gaming A15",
 
     gl = GamingLaptop(specs=gaming_specs)
     gl.getGamingSpecs()
