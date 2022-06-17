@@ -21,9 +21,9 @@ Navigate to the `GhBot`:
 
 Install using conda:
 
-    conda create -n pymusic python=3.9
+    conda create -n ghbot python=3.9
 
-    conda activate pymusic
+    conda activate ghbot
 
     pip install -r requirements.txt
 
