@@ -112,5 +112,9 @@ venv.bak/
 # Ignore CSV
 *.csv
 
+# Ignore text
+*.txt
+!requirements.txt
+
 # Ignore mp3
 *.mp3
