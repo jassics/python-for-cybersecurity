@@ -40,8 +40,6 @@ Run the Post request:
 
     python post.py -u "your_github_username"
 
-![FastAPI](assets/fast_api.png)
-
 Run the Flask App:
     
     python app.py
@@ -49,3 +47,32 @@ Run the Flask App:
 Open browser and navigate to http://127.0.0.1:5000/
 
 ![Flask](assets/flask.png)
+
+
+## API Testing:
+1. Test the local api created with `fastapi` using python:
+    
+    python post.py -u "enter_github_username"
+
+2. Test the local api with `CURL`:
+
+For `Windows` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' http://127.0.0.1:8000/ghbot
+
+For `Linux` and `Mac` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' http://127.0.0.1:8000/ghbot
+
+3. Test the production api with `CURL`:
+
+For `Windows` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot
+
+For `Linux` and `Mac` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' https://ghbot-api.herokuapp.com/ghbot
+
+
+![FastAPI](assets/fast_api.png)
