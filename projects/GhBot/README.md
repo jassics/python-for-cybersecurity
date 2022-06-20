@@ -32,15 +32,11 @@ Run the Script:
 
     python main.py -u "your_github_username"
 
-Run the API service:
+Run the API:
 
     uvicorn api:app --reload
 
-Run the Post request: 
-
-    python post.py -u "your_github_username"
-
-Run the Flask App:
+Run the UI app:
     
     python app.py
 
@@ -73,6 +69,16 @@ For `Windows` users:
 For `Linux` and `Mac` users:
 
     curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' https://ghbot-api.herokuapp.com/ghbot
+
+4. Useful formatting with python `json` library:
+
+For `Windows` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
+
+For `Linux` users:
+
+    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "jassics" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
 
 
 ![FastAPI](assets/fast_api.png)
