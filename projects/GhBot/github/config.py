@@ -8,7 +8,8 @@ class GhConfig:
         return path+filename
 
     class API:
-        URL= "http://127.0.0.1:8000"
+        DEV_URL= "http://127.0.0.1:8000"
+        PROD_URL="https://ghbot-api.herokuapp.com"
         ENDPOINT = "/ghbot"
 
     class CSS:
