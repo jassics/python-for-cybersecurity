@@ -46,39 +46,39 @@ Open browser and navigate to http://127.0.0.1:5000/
 
 
 ## API Testing:
-1. Test the local api created with `fastapi` using python:
+- Test the local api created with `fastapi` using python:
     
-    python post.py -u "enter_github_username"
+        python post.py -u "enter_github_username"
 
-2. Test the local api with `CURL`:
+- Test the local api with `CURL`:
 
-For `Windows` users:
+    For `Windows` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' http://127.0.0.1:8000/ghbot
+        curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' http://127.0.0.1:8000/ghbot
 
-For `Linux` and `Mac` users:
+    For `Linux` and `Mac` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' http://127.0.0.1:8000/ghbot
+        curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' http://127.0.0.1:8000/ghbot
 
-3. Test the production api with `CURL`:
+- Test the production api with `CURL`:
 
-For `Windows` users:
+    For `Windows` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot
+        curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot
 
-For `Linux` and `Mac` users:
+    For `Linux` and `Mac` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' https://ghbot-api.herokuapp.com/ghbot
+        curl -X POST -H "Content-Type: application/json" -d '{ "text" : "deepraj1729" }' https://ghbot-api.herokuapp.com/ghbot
 
-4. Useful formatting with python `json` library:
+- Useful formatting with python `json` library:
 
-For `Windows` users:
+    For `Windows` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
+        curl -X POST -H "Content-Type: application/json" -d '{ \"text\" : \"deepraj1729\" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
 
-For `Linux` users:
+    For `Linux` and `Mac` users:
 
-    curl -X POST -H "Content-Type: application/json" -d '{ "text" : "jassics" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
+        curl -X POST -H "Content-Type: application/json" -d '{ "text" : "jassics" }' https://ghbot-api.herokuapp.com/ghbot | python -m json.tool
 
 
 ![FastAPI](assets/fast_api.png)
