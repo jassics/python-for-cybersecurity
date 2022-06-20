@@ -14,7 +14,7 @@ parser.add_argument('-u', type = str,help = "Your github username")
 args = parser.parse_args()
 username = args.u
 
-dev_url= GhConfig.API.URL
+dev_url= GhConfig.API.PROD_URL
 endpoint = GhConfig.API.ENDPOINT
 
 
