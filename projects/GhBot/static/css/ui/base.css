@@ -1,0 +1,219 @@
+
+/* Custom fonts*/
+@font-face {
+    font-family: "BeautifulPeople";
+    src: local("BeautifulPeople"),
+        url("../../fonts/BeautifulPeople/Beautiful-People.ttf") format("truetype");
+    font-weight: bold;
+}
+  
+@font-face {
+    font-family: "StoryElement";
+    src: local("StoryElement"),
+        url("../../fonts/StoryElement/Story-Element.ttf") format("truetype");
+    font-weight: bold;
+}
+
+/* Montserrat */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3gTD_u50.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+  /* cyrillic */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3g3D_u50.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  /* vietnamese */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3gbD_u50.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3gfD_u50.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v18/JTURjIg1_i6t8kCHKm45_ZpC3gnD_g.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* base.html */
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+/* Custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+background: #363434; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/*Header*/
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252A;
+    /* position: fixed; */
+    width: 100%;
+}
+
+#official{
+    color:white;
+    cursor: pointer;
+    font-family: "StoryElement","BeautifulPeople","Montserrat", sans-serif;
+    font-weight: 900;
+    font-size:xx-large;
+    font-style: inherit;
+
+}
+
+
+/*navbar*/
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding:0px 10px;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:#edf0f1;
+    text-decoration: none;
+}
+
+.nav__links li a{
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:#edf0f1;
+    text-decoration: none;
+}
+
+.nav__links li a:hover{
+    color:orange;
+}
+
+
+
+
+/* main body*/
+.pad-3{
+    /* padding-top:1vh; */
+    padding-left: 1vh;
+    padding-right: 1vh;
+    padding-bottom: 0.5vh;
+}
+
+.pad-top-4{
+    padding-top:4vh;
+}
+
+.pad-top-6{
+    padding-top:6vh;
+}
+
+.marg-top-3{
+    margin-top: 3vh;
+}
+
+.marg-top-4{
+    margin-top: 4vh;
+}
+
+.marg-top-6{
+    margin-top: 6vh;
+}
+
+.marg-top-8{
+    margin-top: 8vh;
+}
+
+
+.shadow-border{
+    border-radius: 15px;
+}
+
+
+/*highlighter*/
+.highlighter1{
+    padding:5px
+    ;width:100%;
+    background-image: linear-gradient(to right, #fa0758 0%,#1dbdee 100%);
+}
+
+.highlighter2{
+    padding:5px
+    ;width:100%;
+    background-image: linear-gradient(to right, #1dbdee 0%,#fa0758 100%);
+}
+
+
+
+/*Main body*/
+main{
+    padding-bottom:6vh;
+    /* background-color: rgba(43, 45, 53,1); */
+    /* background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); */
+    background-image: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 90vh;
+}
+
+footer{
+    padding:3vh ;
+    background-color: rgb(37, 38, 41);
+}
+
+.copyright{
+    color: white;
+    text-align:center;
+}
+
+#footer-font{
+    font-family: "StoryElement","BeautifulPeople","Montserrat", sans-serif;
+}

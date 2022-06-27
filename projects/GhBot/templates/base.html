@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE-Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="{{ url_for('static',filename='icons/favicon.jpg') }}"/>
+    <meta name = "description">
+    <link rel = "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/ui/base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static',filename='css/assets/bootstrap.min.css') }}" rel="stylesheet">
+    {% block header %}
+    {% endblock %}
+    
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <!---------------------------------Navbar-------------------------------------->
+    <header id = "header">
+        <a id="official" href="{{ url_for('home') }}" style="text-decoration: none;"><img src="{{ url_for('static',filename='icons/favicon.jpg') }}" height="60vh" width="60vh">&nbsp; GhBot</a>
+    </header>
+
+    <div class="highlighter1"></div>
+
+
+
+    <!---------------------------------Main Body-------------------------------------->
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+
+
+    <!---------------------------------Highlighter-------------------------------------->
+    <div class="highlighter2"></div>
+
+    <!---------------------------------Footer-------------------------------------->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+              Copyright © 2022. All Rights Reserved by <span id="footer-font">GhBot</span>
+            </div>
+          </div>
+    </footer>
+    
+    <!------------------------------Optional Javascript-------------------------------------->
+    {% block js %}
+    {% endblock %}
+    <script src="{{ url_for('static',filename='js/assets/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
