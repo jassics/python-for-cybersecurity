@@ -222,7 +222,7 @@ sniffio==1.2.0
 sortedcontainers==2.4.0
 soupsieve==2.3.1
 SpeechRecognition==3.8.1
-starlette==0.18.0
+starlette==0.25.0
 tinycss2==1.1.1
 traits==6.3.2
 trio==0.20.0
