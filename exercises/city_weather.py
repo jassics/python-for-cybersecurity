@@ -4,6 +4,12 @@ import requests
 import json
 from datetime import datetime
 
+# asking the user for api key
+api_key = input("Please Enter Your API: ")
+
+#asking the user for city name
+city_name = input("Please Enter Your City Name: ")
+
 # Register yourself here and get the API key first: openweathermap.org
 # API Key would be something like this: 2f8b2c69352e89120becd33028a1c986
 # We have to call Current weather data API: https://openweathermap.org/current (There are many APIs there)
@@ -15,12 +21,6 @@ from datetime import datetime
 def time_from_utc_with_timezone(utc_with_tz):
     local_time = datetime.utcfromtimestamp(utc_with_tz)
     return local_time.time()
-
-# Enter your API key
-api_key = ""
-
-# Get city name from user
-city_name = input("Enter city name : ")
 
 # API url
 weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city_name + '&appid='+api_key
