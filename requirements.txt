@@ -23,7 +23,7 @@ etelemetry==0.3.0
 filelock==3.6.0
 fitz==0.0.1.dev2
 frontend==0.0.3
-future==0.18.2
+future==0.18.3
 ghp-import==2.0.2
 h11==0.13.0
 httplib2==0.20.4
