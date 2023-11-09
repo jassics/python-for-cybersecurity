@@ -17,6 +17,7 @@ def get_duration(seconds):
 
 # Display video(s) duration for given directory
 def display_video_duration(videos_list):
+    global all_video_durations
     for video_file in videos_list:
         video_file_path = dir_path+"/"+video_file
 
@@ -28,6 +29,7 @@ def display_video_duration(videos_list):
 
                 # Contains the duration of the video in terms of seconds
                 video_duration = int(video.duration) # video length output is in seconds
+                all_video_durations = all_video_durations + video_duration # adding all videos duration in seconds for total time.
                 hours, minutes, seconds = get_duration(video_duration) #convert into human readable duration format
 
                 print(f"{video_file}: {hours}:{minutes}:{seconds}")
@@ -35,7 +37,7 @@ def display_video_duration(videos_list):
             pass
 
 if (len(sys.argv) != 2):
-    exit("It needs video file list to work")
+    exit("It needs video directory path to work")
 
 dir_path = ""
 if(os.path.isdir(sys.argv[1])):
@@ -44,6 +46,9 @@ if(os.path.isdir(sys.argv[1])):
 # list to store vodeo files
 videos = []
 
+# variable to store total duration
+all_video_durations = 0
+
 # Iterate directory
 for path in os.listdir(dir_path):
     # check if current path is a file
@@ -51,8 +56,5 @@ for path in os.listdir(dir_path):
         videos.append(path)
 
 display_video_duration(videos)
-
-
-# If you want to check the given file is a video file
-#if mimetypes.guess_type(path)[0].startswith('video'):
-#   print('It is a video')
+hours, minutes, seconds = get_duration(all_video_durations)
+print(f"Total Video duration under directory {dir_path}: {hours}:{minutes}:{seconds}")
