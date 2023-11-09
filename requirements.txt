@@ -228,7 +228,7 @@ traits==6.3.2
 trio==0.20.0
 trio-websocket==0.9.2
 typing_extensions==4.1.1
-urllib3==1.26.8
+urllib3==1.26.18
 uvicorn==0.17.5
 validators==0.18.2
 watchdog==2.1.6
