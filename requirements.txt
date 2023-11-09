@@ -56,7 +56,7 @@ PyAudio==0.2.11
 pycparser==2.21
 pydot==1.4.2
 pydub==0.25.1
-Pygments==2.11.2
+Pygments==2.15.0
 pymdown-extensions==10.0
 PyMuPDF==1.19.6
 pyobjc==8.4
