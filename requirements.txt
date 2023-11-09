@@ -57,7 +57,7 @@ pycparser==2.21
 pydot==1.4.2
 pydub==0.25.1
 Pygments==2.11.2
-pymdown-extensions==9.2
+pymdown-extensions==10.0
 PyMuPDF==1.19.6
 pyobjc==8.4
 pyobjc-core==8.4
