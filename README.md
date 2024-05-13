@@ -36,6 +36,7 @@ Real world examples are the examples which you would see around you in regular b
 1. [Python for Everybody Specialization](https://www.coursera.org/specializations/python)
 2. [Python3 Programming Specialization](https://www.coursera.org/specializations/python-3-programming)
 3. [Crash Course on Python by Google](https://www.coursera.org/learn/python-crash-course)
+4. [Master Python Learning Path](https://programiz.pro/learn/master-python)
 
 ## ToDo List
 - [ ] Add examples for all basic concepts :star:
