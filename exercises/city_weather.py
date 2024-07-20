@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 # asking the user for api key
-api_key = input("Please Enter Your API: ")
+api_key = input("Please Enter Your API Key (get it from openweathermap.org): ")
 
 #asking the user for city name
 city_name = input("Please Enter Your City Name: ")
