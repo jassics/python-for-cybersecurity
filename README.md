@@ -53,6 +53,9 @@ Real world examples are the examples which you would see around you in regular b
 - Similarly check pip version `pip --version`. It should point to Python3.x
 - If you get module name not found error, try to install that named module as `pip install module-name`
 - If you are getting any other error mail me. I would add those steps here.
+- for tkinter to work in MacOs, you need to run `brew install python-tk`
+- If speech recognition is not working, try `pip3 install SpeechRecognition` and `pip3 install pyaudio`
+- distutils module stopped working in python3.12
 
 ## Contact(s)/ Contributor(s)
 1. Sanjeev Jaiswal
