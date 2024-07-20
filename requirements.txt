@@ -30,7 +30,7 @@ fonttools==4.53.1
 frontend==0.0.3
 h11==0.14.0
 httplib2==0.22.0
-idna==2.10
+idna==3.7
 isodate==0.6.1
 itsdangerous==2.2.0
 Jinja2==3.1.4
