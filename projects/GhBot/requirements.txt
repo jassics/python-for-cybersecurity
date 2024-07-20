@@ -1,5 +1,5 @@
 bs4==0.0.1
-requests==2.31.0
+requests==2.32.2
 fastapi==0.75.1
 python-multipart==0.0.7
 uvicorn==0.17.6
