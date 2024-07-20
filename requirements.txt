@@ -25,7 +25,7 @@ Faker==26.0.0
 fastapi==0.75.1
 filelock==3.15.4
 fitz==0.0.1.dev2
-Flask==2.1.2
+Flask==2.2.5
 fonttools==4.53.1
 frontend==0.0.3
 h11==0.14.0
