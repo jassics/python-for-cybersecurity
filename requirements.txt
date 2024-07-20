@@ -214,7 +214,7 @@ pyparsing==3.1.2
 PyPDF2==3.0.1
 pyshorteners==1.0.1
 python-dateutil==2.9.0.post0
-python-multipart==0.0.5
+python-multipart==0.0.7
 python-nmap==0.7.1
 python3-nmap==1.6.0
 python_avatars==1.4.1
