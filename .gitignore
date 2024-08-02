@@ -122,6 +122,7 @@ venv.bak/
 # Ignore text
 *.txt
 !requirements.txt
+*.json
 
 # Ignore mp3
 *.mp3
