@@ -1,6 +1,6 @@
 bs4==0.0.1
 requests==2.32.2
-fastapi==0.75.1
+fastapi==0.109.1
 python-multipart==0.0.7
 uvicorn==0.17.6
 Flask==2.2.5
