@@ -1,39 +1,50 @@
 import socket
 import os
 import requests
-import nmap3 # pip install python3-nmap
+import nmap3  # pip install python3-nmap
 
 """
-    First Python Program
-    Just to see if we can run python3 successfully
-    and modules are installed or not ;)
+    Python Script for Testing Environment
+    Checks system information, IPs, and nmap functionality.
 """
 
 name = "Sanjeev"
-print("Hello "+name+"\n")
-print("O.S. is: " + os.name)
+print(f"Hello {name}\n")
+print(f"O.S. is: {os.name}")
 
-hostname = socket.gethostname()
-local_ip   = socket.gethostbyname(hostname)
-public_ip = requests.get('https://checkip.amazonaws.com').text.strip()
-print("Your Computer Name is:" + hostname)
-print("Your Computer Local IP Address is:" + local_ip)
-print("Your Computer Public IP Address is:" + public_ip)
+# Retrieve host information
+try:
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    print(f"Your Computer Name is: {hostname}")
+    print(f"Your Computer Local IP Address is: {local_ip}")
+except Exception as e:
+    print(f"Error retrieving local IP: {e}")
+
+# Retrieve public IP
+try:
+    public_ip = requests.get('https://checkip.amazonaws.com').text.strip()
+    print(f"Your Computer Public IP Address is: {public_ip}")
+except Exception as e:
+    print(f"Error retrieving public IP: {e}")
+
 print("\nChecking if nmap works:\nStarting nmap scan now...\n")
 
-# make nmap object
+# Initialize nmap object
 nmap = nmap3.Nmap()
 
-#nmap version
-nmap_version = nmap.nmap_version()
-print (f"Nmap version: {nmap_version}")
+# Get nmap version
+try:
+    nmap_version = nmap.nmap_version()
+    print(f"Nmap version: {nmap_version}")
+except Exception as e:
+    print(f"Error retrieving nmap version: {e}")
 
-# scanning practical-devsecops.com
+# Perform a top ports scan
 url = 'aliencoders.org'
-""""
-print("Starting nmap scan for url: " + url)
-results = nmap.nmap_version_detection(url)
-print(f"Here is the result for {url}: {results}")
-"""
-top_ports = nmap.scan_top_ports(url, args="-sV")
-print(f"These are the top ports: {top_ports}")
+try:
+    print(f"Starting nmap scan for URL: {url}")
+    top_ports = nmap.scan_top_ports(url, args="-sV")
+    print(f"Top ports for {url}: {top_ports}")
+except Exception as e:
+    print(f"Error during nmap scan: {e}")
