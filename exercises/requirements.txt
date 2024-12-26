@@ -87,5 +87,5 @@ typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.2
 webencodings==0.5.1
-Werkzeug==3.0.3
+Werkzeug==3.0.6
 youtube-dl==2021.12.17

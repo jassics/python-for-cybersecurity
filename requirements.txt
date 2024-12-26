@@ -241,6 +241,6 @@ urllib3==1.26.19
 uvicorn==0.17.6
 validators==0.33.0
 webencodings==0.5.1
-Werkzeug==3.0.3
+Werkzeug==3.0.6
 whois==1.20240129.2
 youtube-dl==2021.12.17
