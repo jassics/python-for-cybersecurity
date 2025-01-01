@@ -224,7 +224,7 @@ pytz==2024.1
 pyxnat==1.6.2
 rdflib==6.3.2
 regex==2024.5.15
-requests==2.27.1
+requests==2.32.2
 scipy==1.14.0
 simplejson==3.19.2
 six==1.16.0
