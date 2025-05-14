@@ -28,7 +28,7 @@ fitz==0.0.1.dev2
 Flask==2.2.5
 fonttools==4.53.1
 frontend==0.0.3
-h11==0.14.0
+h11==0.16.0
 httplib2==0.22.0
 idna==3.7
 isodate==0.6.1
