@@ -49,7 +49,7 @@ pafy==0.5.5
 pandas==2.2.2
 pathlib==1.0.1
 pdf2image==1.17.0
-pillow==10.4.0
+pillow==12.1.1
 prov==2.0.1
 py-avataaars==1.1.2
 PyAudio==0.2.14
