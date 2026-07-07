@@ -11,11 +11,12 @@ import random
 #   statement(s)
 
 guess_num_range = 20
-num_to_be_guessed = int(guess_num_range * random.random()) + 1
+num_to_be_guessed = random.randint(1, guess_num_range)
 guess = 0
 
 while guess != num_to_be_guessed:
     guess = int(input("Guess the number: "))
+    
     if guess > 0:
         if guess > num_to_be_guessed:
             print("Number is too large")
@@ -25,4 +26,4 @@ while guess != num_to_be_guessed:
         print("Sorry that you're giving up!")
         break
 else:
-    print("Congratulation. You made it!")
+    print("Congratulations. You made it!")
