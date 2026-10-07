@@ -15,7 +15,7 @@ easygui==0.98.3
 Faker==26.0.0
 fastapi==0.109.1
 Flask==2.2.5
-fonttools==4.53.1
+fonttools==4.61.0
 idna==3.7
 itsdangerous==2.2.0
 Jinja2==3.1.4
